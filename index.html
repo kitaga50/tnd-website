@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+<title>ホーム | TND</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Outfit:wght@600;700;800&display=swap');
+:root {
+  --teal:#0abf8a; --blue:#1e6fa8; --blue-dark:#0d4f7c; --blue-mid:#2d8bbf;
+  --sky:#e6f6ff; --white:#fff; --gray-light:#f4f8fb;
+  --gray:#6b7a8d; --gray-dark:#2c3a4a; --text:#1a2b3c;
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html, body {
+  height:auto !important;
+  min-height:0 !important;
+  overflow-x:hidden !important;
+  overflow-y:visible !important;
+  width:100%;
+}
+body { font-family:'Noto Sans JP',sans-serif; color:var(--text); background:#fff; }
+img { max-width:100%; height:auto; display:block; }
+nav {
+  width:100%;
+  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap;
+  padding:0 4%; height:auto; min-height:60px;
+  background:#fff;
+  border-bottom:1px solid rgba(30,111,168,0.12);
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+.nav-logo { display:flex; align-items:center; gap:8px; text-decoration:none; padding:12px 0; }
+.nav-logo-mark {
+  width:34px; height:34px; min-width:34px;
+  background:linear-gradient(135deg,var(--blue),var(--teal));
+  border-radius:8px; display:flex; align-items:center; justify-content:center;
+  color:#fff; font-family:'Outfit',sans-serif; font-weight:800; font-size:13px;
+}
+.nav-logo-text { font-family:'Outfit',sans-serif; font-weight:700; font-size:16px; color:var(--blue-dark); }
+.nav-toggle { display:none; background:none; border:none; font-size:22px; color:var(--blue-dark); cursor:pointer; padding:8px; }
+.nav-links { display:flex; gap:20px; list-style:none; align-items:center; padding:8px 0; }
+.nav-links a { text-decoration:none; font-size:13px; font-weight:500; color:var(--gray-dark); padding-bottom:3px; border-bottom:2px solid transparent; }
+.nav-links a:hover, .nav-links a.active { color:var(--blue); border-bottom-color:var(--teal); }
+section { width:100%; }
+.inner { max-width:1080px; margin:0 auto; padding:0 5%; }
+.pad { padding-top:64px; padding-bottom:64px; }
+.pad-sm { padding-top:48px; padding-bottom:48px; }
+.tag { display:inline-block; font-family:'Outfit',sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--teal); margin-bottom:10px; }
+h1.ttl, h2.ttl { font-family:'Outfit',sans-serif; font-weight:800; line-height:1.25; color:var(--blue-dark); margin-bottom:14px; font-size:clamp(24px,5vw,40px); }
+.desc { font-size:15px; color:var(--gray); line-height:1.85; max-width:620px; }
+.btn-primary { display:inline-block; background:linear-gradient(135deg,var(--blue),var(--teal)); color:#fff; padding:13px 26px; border-radius:10px; font-size:14px; font-weight:600; text-decoration:none; box-shadow:0 4px 16px rgba(10,191,138,0.3); }
+.btn-outline { display:inline-block; border:2px solid var(--blue); color:var(--blue); padding:12px 26px; border-radius:10px; font-size:14px; font-weight:600; text-decoration:none; }
+.btns { display:flex; gap:12px; flex-wrap:wrap; }
+.grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+.grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+footer { background:var(--gray-dark); color:rgba(255,255,255,0.6); text-align:center; padding:24px 5%; font-size:13px; }
+footer strong { color:#fff; }
+@media(max-width:720px){
+  .nav-toggle { display:block; }
+  .nav-links { display:none; flex-direction:column; align-items:flex-start; width:100%; gap:0; padding:0; border-top:1px solid rgba(30,111,168,0.1); }
+  .nav-links.open { display:flex; }
+  .nav-links li { width:100%; }
+  .nav-links a { display:block; padding:12px 16px; border-bottom:1px solid rgba(30,111,168,0.07); font-size:15px; }
+  .grid-2, .grid-3 { grid-template-columns:1fr !important; }
+  .desc { font-size:14px; }
+  .pad { padding-top:48px; padding-bottom:48px; }
+  .inner { padding:0 4%; }
+}
+
+.hero { background:linear-gradient(160deg,#eaf7f2,#e6f4ff); }
+.hero .inner { padding-top:60px; padding-bottom:60px; }
+.hero-badge { display:inline-flex; align-items:center; gap:7px; background:#fff; border:1px solid rgba(10,191,138,0.3); border-radius:100px; padding:5px 13px; font-size:11px; font-weight:500; color:var(--teal); margin-bottom:20px; }
+.hero-badge-dot { width:6px; height:6px; border-radius:50%; background:var(--teal); animation:pulse 2s infinite; }
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
+.hero h1 { font-family:'Outfit',sans-serif; font-size:clamp(28px,6vw,52px); font-weight:800; line-height:1.2; color:var(--blue-dark); margin-bottom:12px; }
+.hero h1 span { color:var(--teal); }
+.hero-sub { font-size:16px; font-weight:700; color:var(--blue); margin-bottom:14px; }
+.hero-desc { font-size:14px; line-height:1.9; color:var(--gray); margin-bottom:28px; }
+.compass-card { background:#fff; border-radius:18px; padding:32px 28px; box-shadow:0 16px 48px rgba(30,111,168,0.13); position:relative; overflow:hidden; }
+.compass-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--blue),var(--teal)); }
+.compass-icon { font-size:52px; text-align:center; margin-bottom:14px; display:block; }
+.compass-tagline { text-align:center; font-family:'Outfit',sans-serif; font-size:17px; font-weight:700; color:var(--blue-dark); margin-bottom:6px; }
+.compass-sub { text-align:center; font-size:12px; color:var(--gray); margin-bottom:20px; }
+.stat-row { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+.stat-item { background:var(--gray-light); border-radius:10px; padding:12px 6px; text-align:center; }
+.stat-num { font-family:'Outfit',sans-serif; font-size:22px; font-weight:800; color:var(--blue); display:block; }
+.stat-label { font-size:10px; color:var(--gray); margin-top:2px; display:block; }
+.pain-card { background:var(--gray-light); border-radius:12px; padding:20px 18px; border-left:4px solid var(--teal); }
+.pain-card p::before { content:'💬'; display:block; font-size:20px; margin-bottom:8px; }
+.pain-card p { font-size:13px; color:var(--gray-dark); line-height:1.75; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="https://sites.google.com/thenorthdir.jp/tnd-consulting" class="nav-logo">
+    <div class="nav-logo-mark">TND</div>
+    <span class="nav-logo-text">The Northern Direction</span>
+  </a>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="メニュー">☰</button>
+  <ul class="nav-links"><li><a href="https://sites.google.com/thenorthdir.jp/tnd-consulting" class="active">ホーム</a></li><li><a href="https://sites.google.com/thenorthdir.jp/tnd-consulting/concept">TNDとは</a></li><li><a href="https://sites.google.com/thenorthdir.jp/tnd-consulting/services">支援内容</a></li><li><a href="https://sites.google.com/thenorthdir.jp/tnd-consulting/members">メンバー</a></li><li><a href="https://sites.google.com/thenorthdir.jp/tnd-consulting/contact">お問い合わせ</a></li></ul>
+</nav>
+
+<section class="hero">
+  <div class="inner">
+    <div class="hero-badge"><span class="hero-badge-dot"></span>スタートアップ・ベンチャー企業専門</div>
+    <h1>「管理部門、<span>誰に頼む？</span>」<br>その答えがここに。</h1>
+    <p class="hero-sub">ティーエヌディー（The Northern Direction）</p>
+    <p class="hero-desc">経理・人事・内部統制・IPO準備——成長フェーズのベンチャーが直面する管理部門のあらゆる課題に、実務経験豊富なプロフェッショナルが現場レベルで伴走します。</p>
+    <div class="btns" style="margin-bottom:40px;">
+      <a href="https://sites.google.com/thenorthdir.jp/tnd-consulting/services" class="btn-primary">支援内容を見る</a>
+      <a href="https://sites.google.com/thenorthdir.jp/tnd-consulting/contact" class="btn-outline">無料相談する</a>
+    </div>
+    <div class="compass-card">
+      <span class="compass-icon">🧭</span>
+      <div class="compass-tagline">北の方角を示す羅針盤</div>
+      <div class="compass-sub">企業の現在地を可視化し、正しい方向へ</div>
+      <div class="stat-row">
+        <div class="stat-item"><span class="stat-num">6社+</span><span class="stat-label">IPO支援実績</span></div>
+        <div class="stat-item"><span class="stat-num">4社</span><span class="stat-label">現在支援中</span></div>
+        <div class="stat-item"><span class="stat-num">20年+</span><span class="stat-label">経理・管理経験</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="inner pad">
+    <div class="tag">こんなお悩みありませんか？</div>
+    <h2 class="ttl">成長企業が直面する<br>管理部門の「あるある」課題</h2>
+    <div class="grid-3" style="margin-top:32px;">
+      <div class="pain-card"><p>経理担当がいない、または突然辞めてしまった。どうすればいい？</p></div>
+      <div class="pain-card"><p>IPOを視野に入れ始めたけど、何から手をつければいいか分からない。</p></div>
+      <div class="pain-card"><p>顧問税理士や社労士に聞くほどでもない、細かい相談ができる人がいない。</p></div>
+      <div class="pain-card"><p>管理体制を整えたいが、採用が追いつかず社内リソースが足りない。</p></div>
+      <div class="pain-card"><p>監査法人から指摘が続いており、内部統制の整備が急務になっている。</p></div>
+      <div class="pain-card"><p>人事評価制度がなく、社員から不満の声が上がり始めている。</p></div>
+    </div>
+  </div>
+</section>
+<footer><p>&copy; 2024 <strong>ティーエヌディー（The Northern Direction）</strong>　代表 北方 正孝</p></footer>
+<script>
+(function(){
+  function notify(){
+    var h = document.documentElement.scrollHeight || document.body.scrollHeight;
+    try { window.parent.postMessage({type:'setHeight',height:h},'*'); } catch(e){}
+    try { window.parent.postMessage({frameHeight:h},'*'); } catch(e){}
+  }
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',function(){ setTimeout(notify,100); setTimeout(notify,600); setTimeout(notify,1500); });
+  } else { setTimeout(notify,100); setTimeout(notify,600); setTimeout(notify,1500); }
+  window.addEventListener('resize',notify);
+  window.addEventListener('load',function(){ setTimeout(notify,200); });
+})();
+</script>
+</body>
+</html>

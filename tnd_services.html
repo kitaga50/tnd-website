@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+<title>支援内容 | TND</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Outfit:wght@600;700;800&display=swap');
+:root {
+  --teal:#0abf8a; --blue:#1e6fa8; --blue-dark:#0d4f7c; --blue-mid:#2d8bbf;
+  --sky:#e6f6ff; --white:#fff; --gray-light:#f4f8fb;
+  --gray:#6b7a8d; --gray-dark:#2c3a4a; --text:#1a2b3c;
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html, body {
+  height:auto !important;
+  min-height:0 !important;
+  overflow-x:hidden !important;
+  overflow-y:visible !important;
+  width:100%;
+}
+body { font-family:'Noto Sans JP',sans-serif; color:var(--text); background:#fff; }
+img { max-width:100%; height:auto; display:block; }
+nav {
+  width:100%;
+  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap;
+  padding:0 4%; height:auto; min-height:60px;
+  background:#fff;
+  border-bottom:1px solid rgba(30,111,168,0.12);
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+.nav-logo { display:flex; align-items:center; gap:8px; text-decoration:none; padding:12px 0; }
+.nav-logo-mark {
+  width:34px; height:34px; min-width:34px;
+  background:linear-gradient(135deg,var(--blue),var(--teal));
+  border-radius:8px; display:flex; align-items:center; justify-content:center;
+  color:#fff; font-family:'Outfit',sans-serif; font-weight:800; font-size:13px;
+}
+.nav-logo-text { font-family:'Outfit',sans-serif; font-weight:700; font-size:16px; color:var(--blue-dark); }
+.nav-toggle { display:none; background:none; border:none; font-size:22px; color:var(--blue-dark); cursor:pointer; padding:8px; }
+.nav-links { display:flex; gap:20px; list-style:none; align-items:center; padding:8px 0; }
+.nav-links a { text-decoration:none; font-size:13px; font-weight:500; color:var(--gray-dark); padding-bottom:3px; border-bottom:2px solid transparent; }
+.nav-links a:hover, .nav-links a.active { color:var(--blue); border-bottom-color:var(--teal); }
+section { width:100%; }
+.inner { max-width:1080px; margin:0 auto; padding:0 5%; }
+.pad { padding-top:64px; padding-bottom:64px; }
+.pad-sm { padding-top:48px; padding-bottom:48px; }
+.tag { display:inline-block; font-family:'Outfit',sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--teal); margin-bottom:10px; }
+h1.ttl, h2.ttl { font-family:'Outfit',sans-serif; font-weight:800; line-height:1.25; color:var(--blue-dark); margin-bottom:14px; font-size:clamp(24px,5vw,40px); }
+.desc { font-size:15px; color:var(--gray); line-height:1.85; max-width:620px; }
+.btn-primary { display:inline-block; background:linear-gradient(135deg,var(--blue),var(--teal)); color:#fff; padding:13px 26px; border-radius:10px; font-size:14px; font-weight:600; text-decoration:none; box-shadow:0 4px 16px rgba(10,191,138,0.3); }
+.btn-outline { display:inline-block; border:2px solid var(--blue); color:var(--blue); padding:12px 26px; border-radius:10px; font-size:14px; font-weight:600; text-decoration:none; }
+.btns { display:flex; gap:12px; flex-wrap:wrap; }
+.grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+.grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+footer { background:var(--gray-dark); color:rgba(255,255,255,0.6); text-align:center; padding:24px 5%; font-size:13px; }
+footer strong { color:#fff; }
+@media(max-width:720px){
+  .nav-toggle { display:block; }
+  .nav-links { display:none; flex-direction:column; align-items:flex-start; width:100%; gap:0; padding:0; border-top:1px solid rgba(30,111,168,0.1); }
+  .nav-links.open { display:flex; }
+  .nav-links li { width:100%; }
+  .nav-links a { display:block; padding:12px 16px; border-bottom:1px solid rgba(30,111,168,0.07); font-size:15px; }
+  .grid-2, .grid-3 { grid-template-columns:1fr !important; }
+  .desc { font-size:14px; }
+  .pad { padding-top:48px; padding-bottom:48px; }
+  .inner { padding:0 4%; }
+}
+
+.page-hero { background:linear-gradient(160deg,#eaf7f2,#e6f4ff); }
+.svc-bg { background:var(--gray-light); }
+.svc-card { background:#fff; border-radius:14px; padding:24px 22px; position:relative; overflow:hidden; transition:transform .2s,box-shadow .2s; }
+.svc-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--blue),var(--teal)); transform:scaleX(0); transform-origin:left; transition:transform .3s; }
+.svc-card:hover { transform:translateY(-4px); box-shadow:0 12px 32px rgba(30,111,168,0.12); }
+.svc-card:hover::after { transform:scaleX(1); }
+.svc-icon { font-size:28px; margin-bottom:12px; display:block; }
+.svc-card h3 { font-size:14px; font-weight:700; color:var(--blue-dark); margin-bottom:8px; line-height:1.4; }
+.svc-card p { font-size:12px; color:var(--gray); line-height:1.7; }
+.tbl-wrap { overflow-x:auto; border-radius:14px; box-shadow:0 4px 20px rgba(30,111,168,0.1); margin-top:32px; }
+table { width:100%; border-collapse:collapse; background:#fff; font-size:13px; min-width:560px; }
+thead tr { background:linear-gradient(90deg,var(--blue-dark),var(--blue-mid)); }
+thead th { color:#fff; padding:14px 16px; text-align:left; font-weight:600; font-size:12px; }
+tbody tr:nth-child(odd) { background:#fff; }
+tbody tr:nth-child(even) { background:var(--gray-light); }
+tbody td { padding:12px 16px; color:var(--gray-dark); line-height:1.5; font-size:12px; }
+tbody td:first-child { font-weight:600; color:var(--blue-dark); white-space:nowrap; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="https://sites.google.com/thenorthdir.jp/tnd-consulting" class="nav-logo">
+    <div class="nav-logo-mark">TND</div>
+    <span class="nav-logo-text">The Northern Direction</span>
+  </a>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="メニュー">☰</button>
+  <ul class="nav-links"><li><a href="https://sites.google.com/thenorthdir.jp/tnd-consulting">ホーム</a></li><li><a href="https://sites.google.com/thenorthdir.jp/tnd-consulting/concept">TNDとは</a></li><li><a href="https://sites.google.com/thenorthdir.jp/tnd-consulting/services" class="active">支援内容</a></li><li><a href="https://sites.google.com/thenorthdir.jp/tnd-consulting/members">メンバー</a></li><li><a href="https://sites.google.com/thenorthdir.jp/tnd-consulting/contact">お問い合わせ</a></li></ul>
+</nav>
+
+<section class="page-hero">
+  <div class="inner pad-sm">
+    <div class="tag">Services</div>
+    <h1 class="ttl">ご支援内容</h1>
+    <p class="desc">「まだ管理部門が整っていない」「IPOを視野に入れ始めた」「担当者が突然辞めてしまった」——どのフェーズ・どんな状況でも、必要な支援をピンポイントでご提供します。</p>
+  </div>
+</section>
+<section class="svc-bg">
+  <div class="inner pad">
+    <div class="grid-3">
+      <div class="svc-card"><span class="svc-icon">📈</span><h3>IPO準備支援</h3><p>「どこから手をつければいい？」から「監査法人に指摘される前に直す」まで。管理体制・内部統制の整備を実務レベルで一貫サポートします。</p></div>
+      <div class="svc-card"><span class="svc-icon">📋</span><h3>事業計画策定支援</h3><p>投資家や金融機関に説得力を持って示せる中期経営計画・予算を、財務の専門家が一緒に作り上げます。</p></div>
+      <div class="svc-card"><span class="svc-icon">💰</span><h3>資金調達支援</h3><p>VCや金融機関への提出資料・財務モデル構築を実務レベルで支援。調達の成功確率を高めます。</p></div>
+      <div class="svc-card"><span class="svc-icon">📒</span><h3>経理業務受託</h3><p>記帳代行から月次・年次決算まで丸ごとお任せ。経営に集中できる環境をつくります。</p></div>
+      <div class="svc-card"><span class="svc-icon">👥</span><h3>給与・人事評価制度構築</h3><p>採用競争力を高め、社員が納得できる評価制度を設計。ゼロから作り上げます。</p></div>
+      <div class="svc-card"><span class="svc-icon">💡</span><h3>経理・財務 / 人事・労務 アドバイザリー</h3><p>「顧問税理士には聞けない細かいこと」そんな日々の判断を支える継続的なアドバイザリーです。</p></div>
+      <div class="svc-card"><span class="svc-icon">🔄</span><h3>経理・人事DX支援</h3><p>クラウド会計・人事システムの選定から導入・定着まで。業務フロー全体の効率化を実現します。</p></div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="inner pad">
+    <div class="tag">Support Image</div>
+    <h2 class="ttl">内部管理体制強化<br>ご支援イメージ</h2>
+    <p class="desc">「どの業務をどこまでやってもらえるの？」——具体的な支援範囲をご覧ください。</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>業務領域</th><th>主な作業・書類準備</th><th>TNDの支援内容</th></tr></thead>
+        <tbody>
+          <tr><td>日常業務・月次決算</td><td>日常業務、支店処理・本社処理、月次決算整理仕訳、税理士法人対応</td><td>月次決算アドバイザリー、税理士法人対応支援、管理資料作成支援</td></tr>
+          <tr><td>決算対応</td><td>決算整理、各種引当金計上、税金・税効果、組替表・CF作成、監査法人対応</td><td>決算業務支援、税理士提出資料作成支援、監査法人対応支援</td></tr>
+          <tr><td>計画策定支援</td><td>中期経営計画策定、予算策定（引当金・税金計算・BS/CF作成等）</td><td>計画策定業務支援、税金・税効果検討、相談対応・アドバイス</td></tr>
+          <tr><td>規程等整備</td><td>ガバナンス体制検討、各種規程検討・策定・制定・運用</td><td>体制整備支援、規程策定支援、運用支援</td></tr>
+          <tr><td>内部統制関連整備</td><td>業務記述書・フローチャート・RCM作成、運用、監査法人対応</td><td>3点セット作成支援、運用支援、監査法人対応支援</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<footer><p>&copy; 2024 <strong>ティーエヌディー（The Northern Direction）</strong>　代表 北方 正孝</p></footer>
+<script>
+(function(){
+  function notify(){
+    var h = document.documentElement.scrollHeight || document.body.scrollHeight;
+    try { window.parent.postMessage({type:'setHeight',height:h},'*'); } catch(e){}
+    try { window.parent.postMessage({frameHeight:h},'*'); } catch(e){}
+  }
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',function(){ setTimeout(notify,100); setTimeout(notify,600); setTimeout(notify,1500); });
+  } else { setTimeout(notify,100); setTimeout(notify,600); setTimeout(notify,1500); }
+  window.addEventListener('resize',notify);
+  window.addEventListener('load',function(){ setTimeout(notify,200); });
+})();
+</script>
+</body>
+</html>
